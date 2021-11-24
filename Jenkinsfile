@@ -5,6 +5,10 @@ pipeline {
             label 'master'
         }
     }
+    
+    environment {
+        MIKEL = "MIKEL"                
+    } 
 
     stages {
         stage(' Test') {
