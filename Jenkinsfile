@@ -5,17 +5,11 @@ pipeline {
             label 'master'
         }
     }
-    
-    environment {
-        MIKEL = "MIKEL"                
-    } 
 
     stages {
         stage(' Test') {
             steps {
-                sh """
-                echo "Running Unit Tests"
-                """
+                build job: 'multibranch2/'+ env.BRANCH_NAME, parameters: [[$class: 'StringParameterValue', name: 'VERSION_NUMBER', value: '1.0.0.0']]
             }
         }
     }   
